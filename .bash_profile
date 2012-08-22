@@ -2,10 +2,28 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$"
-export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w `git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`\[\033[37m\]$\[\033[00m\] '
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto verbose"
 
-export PS1="\[\033[G\]$PS1"
+function _prompt {
+    EXIT_CODE="$?"
+
+    BOLD="\[\033[1m\]"
+    OFF="\[\033[m\]"
+
+    # Debian default
+    PS1="${debian_chroot:+($debian_chroot)}\u@\h \w"
+
+    # git status
+    PS1="$PS1$(__git_ps1) $BOLD\$$OFF "
+
+    # always at the leftmost column
+    PS1="\[\033[G\]$PS1"
+}
+
+PROMPT_COMMAND=_prompt
 
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/devel/emscripten

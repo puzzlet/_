@@ -6,3 +6,5 @@
     prompt = false
 [color]
 	ui = auto
+[bash]
+	showDirtyState = true

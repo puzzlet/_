@@ -6,7 +6,10 @@ import subprocess
 
 IGNORE = [
     '.git',
-    'deploy.py',
+    os.path.basename(__file__),
+]
+SKIP_LINK = [
+    '.irssi/config',
 ]
 
 
@@ -43,6 +46,8 @@ def make_link(rel_path):
         else:
             if open(source_path).read() != open(target_path).read():
                 subprocess.check_call(['vimdiff', source_path, target_path])
+            if rel_path in SKIP_LINK:
+                return
             while True:
                 ans = input("Keep? (Y/n) ").strip()
                 if not ans or ans in 'yY':

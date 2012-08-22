@@ -1,0 +1,5 @@
+settings = {
+  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = { theme = "whitespace"; hilight_color = "= %R"; };
+  "perl/core/scripts" = { trackbar_style = "%B"; };
+};

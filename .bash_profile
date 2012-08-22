@@ -1,3 +1,7 @@
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
 export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$"
 export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w `git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`\[\033[37m\]$\[\033[00m\] '
 
@@ -11,3 +15,7 @@ export EDITOR=vim
 eval `dircolors ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal`
 
 . /usr/share/autojump/autojump.sh
+
+if [ -f ~/.bash_profile_private ]; then
+    . ~/.bash_profile_private
+fi

@@ -1,3 +1,5 @@
+[include]
+    path = ~/.gitconfig_private
 [diff]
 	tool = vimdiff
 [difftool]

@@ -23,10 +23,15 @@ syntax enable
 
 " solarize
 if $TERM != "cygwin"
-    set background=dark
     let g:solarized_italic=0
     if $TERM != "screen"
         let g:solarized_termcolors=256
     endif
+    if $COLORTERM == "gnome-terminal"
+        " already has solarized theme
+        let g:solarized_termcolors=16
+        set t_Co=16
+    endif
     colorscheme solarized
+    set background=dark
 endif

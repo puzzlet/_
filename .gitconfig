@@ -1,12 +1,19 @@
 [include]
-    path = ~/.gitconfig_private
+    # works both in Linux/Windows
+    path = .gitconfig_private
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
+    autocrlf = false
+    eol = lf
+[push]
+    default = upstream
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
     prompt = false
+[merge]
+    tool = vimdiff
 [color]
-	ui = auto
+    ui = auto
 [bash]
-	showDirtyState = true
+    showDirtyState = true

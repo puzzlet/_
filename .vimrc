@@ -1,3 +1,6 @@
+" farewell old vi
+set nocompatible
+
 set autoindent
 set expandtab
 set tabstop=4
@@ -19,7 +22,11 @@ call pathogen#infect()
 syntax enable
 
 " solarize
-set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
-"set t_Co=16
+if $TERM != "cygwin"
+    set background=dark
+    let g:solarized_italic=0
+    if $TERM != "screen"
+        let g:solarized_termcolors=256
+    endif
+    colorscheme solarized
+endif

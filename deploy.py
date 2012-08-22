@@ -2,6 +2,7 @@
 import logging
 import os
 import subprocess
+import sys
 
 
 IGNORE = [
@@ -45,7 +46,7 @@ def make_link(rel_path):
                 target_path, link_path))
         else:
             if open(source_path).read() != open(target_path).read():
-                subprocess.check_call(['vimdiff', source_path, target_path])
+                vimdiff(source_path, target_path)
             if rel_path in SKIP_LINK:
                 return
             while True:
@@ -58,6 +59,15 @@ def make_link(rel_path):
     if not os.path.exists(target_dir):
         os.makedirs(target_dir, exist_ok=True)
     os.symlink(source_path, target_path)
+
+
+def vimdiff(a, b):
+    cmd = []
+    if sys.platform in ['win32']:
+        cmd += ['C:\\Program Files (x86)\\Vim\\vim73\\gvim.exe', '-d']
+    else:
+        cmd += ['vimdiff']
+    subprocess.check_call(cmd + [a, b])
 
 
 if __name__ == '__main__':

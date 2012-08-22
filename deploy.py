@@ -22,7 +22,7 @@ def main():
             if file_name in IGNORE:
                 continue
             rel_path = os.path.join(rel_root, file_name)
-            logging.info(rel_path)
+            logging.debug(rel_path)
             make_link(rel_path)
 
 
@@ -37,7 +37,7 @@ def make_link(rel_path):
     if os.path.isfile(target_path):
         if os.path.islink(target_path):
             link_path = os.path.join(target_dir, os.readlink(target_path))
-            if link_path == target_path:
+            if link_path == source_path:
                 return
             logging.info("`{}' is a symbolic link to {}".format(
                 target_path, link_path))

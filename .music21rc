@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <localCorpusSettings/>
+  <preference name="lilypondBackend" value="ps"/>
+  <preference name="pdfPath"/>
+  <preference name="lilypondVersion"/>
+  <preference name="graphicsPath" value="eog"/>
+  <preference name="warnings" value="False"/>
+  <preference name="showFormat" value="musicxml"/>
+  <preference name="vectorPath"/>
+  <preference name="writeFormat" value="musicxml"/>
+  <preference name="lilypondPath" value="lilypond"/>
+  <preference name="directoryScratch"/>
+  <preference name="lilypondFormat" value="pdf"/>
+  <preference name="debug" value="0"/>
+  <preference name="musicxmlPath" value="/usr/bin/musescore"/>
+  <preference name="autoDownload" value="ask"/>
+  <preference name="midiPath"/>
+</settings>

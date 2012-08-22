@@ -30,7 +30,12 @@ export PATH=$PATH:$HOME/devel/emscripten
 
 export EDITOR=vim
 
-eval `dircolors ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal`
+# sort ASCII-wise in ls
+export LC_COLLATE="C"
+
+if [ -f ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal ]; then
+    eval `dircolors ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal`
+fi
 
 . /usr/share/autojump/autojump.sh
 

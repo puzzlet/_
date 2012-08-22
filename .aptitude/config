@@ -1,7 +1,7 @@
 # solarize
 Aptitude::UI::Styles {
   Default {
-    bg default;
+    bg black;
   };
   DepBroken {
     fg white;

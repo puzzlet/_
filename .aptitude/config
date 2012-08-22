@@ -1,0 +1,10 @@
+# solarize
+Aptitude::UI::Styles {
+  Default {
+    bg default;
+  };
+  DepBroken {
+    fg white;
+    bg red;
+  };
+};

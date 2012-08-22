@@ -21,20 +21,22 @@ def main():
         for file_name in files:
             if file_name in IGNORE:
                 continue
-            make_link(os.path.join(rel_root, file_name))
+            rel_path = os.path.join(rel_root, file_name)
+            logging.info(rel_path)
+            make_link(rel_path)
 
 
 def make_link(rel_path):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     source_path = os.path.join(base_dir, rel_path)
     target_path = os.path.join(os.path.expanduser('~'), rel_path)
+    target_dir = os.path.dirname(target_path)
     if os.path.isdir(target_path):
         logging.info("`{}' is a directory".format(target_path))
         return
     if os.path.isfile(target_path):
         if os.path.islink(target_path):
-            link_path = os.path.join(os.path.dirname(target_path),
-                                     os.readlink(target_path))
+            link_path = os.path.join(target_dir, os.readlink(target_path))
             if link_path == target_path:
                 return
             logging.info("`{}' is a symbolic link to {}".format(
@@ -49,6 +51,8 @@ def make_link(rel_path):
                 if ans in 'nN':
                     break
         os.unlink(target_path)
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir, exist_ok=True)
     os.symlink(source_path, target_path)
 
 

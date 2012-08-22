@@ -41,6 +41,10 @@ fi
 
 . /usr/share/autojump/autojump.sh
 
+# colored grep and less
+alias grep="grep --color=always"
+alias less="less -R"
+
 if [ -f ~/.bash_profile_private ]; then
     . ~/.bash_profile_private
 fi

@@ -1,0 +1,4 @@
+# global gitignore
+*.pyc
+
+Thumbs.db

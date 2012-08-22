@@ -1,5 +1,7 @@
 [include]
     path = ~/.gitconfig_private
+[core]
+	excludesfile = ~/.gitignore
 [diff]
 	tool = vimdiff
 [difftool]

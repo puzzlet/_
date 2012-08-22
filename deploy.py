@@ -6,7 +6,6 @@ import subprocess
 
 IGNORE = [
     '.git',
-    '.gitignore',
     'deploy.py',
 ]
 

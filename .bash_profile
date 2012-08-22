@@ -19,6 +19,8 @@ function _prompt {
     # git status
     PS1="$PS1$(__git_ps1) $BOLD\$$OFF "
 
+    PS1="$OFF$PS1"
+
     # always at the leftmost column
     PS1="\[\033[G\]$PS1"
 }

@@ -22,15 +22,18 @@ call pathogen#infect()
 syntax enable
 
 " solarize
-if $TERM != "cygwin"
+if $TERM != 'cygwin'
     let g:solarized_italic=0
-    if $TERM != "screen"
-        let g:solarized_termcolors=256
-    endif
-    if $COLORTERM == "gnome-terminal"
+    if $COLORTERM == 'gnome-terminal'
         " already has solarized theme
         let g:solarized_termcolors=16
         set t_Co=16
+    elseif has('gui_running')
+        let g:solarized_termcolors=256
+        set t_Co=256
+    else
+        let g:solarized_termcolors=8
+        set t_Co=8
     endif
     colorscheme solarized
     set background=dark

@@ -58,11 +58,15 @@ function _prompt {
     BOLD="\[\033[1m\]"
     OFF="\[\033[m\]"
 
+    C1="\[\033[0;38m\]"
+    BLUE="\[\033[0;34m\]"
+    BROWN="\[\033[0;33m\]"
+
     # Debian default
-    PS1="${debian_chroot:+($debian_chroot)}\u@\h \w"
+    PS1="${debian_chroot:+($debian_chroot)}\u@\h $BLUE\w$OFF"
 
     # git status
-    PS1="$PS1$(__git_ps1) $BOLD\$$OFF "
+    PS1="$PS1$BROWN$(__git_ps1)$OFF $BOLD\$$OFF "
 
     PS1="$OFF$PS1"
 

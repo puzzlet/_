@@ -17,6 +17,10 @@ autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 filetype plugin indent on
 
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 cmap w!! %!sudo tee > /dev/null %
 
 call pathogen#infect()
@@ -42,6 +46,6 @@ if $TERM != 'cygwin'
     set background=dark
 endif
 
-if filereadable("~/.vimrc_private")
+if filereadable(expand("$HOME/.vimrc_private"))
     source ~/.vimrc_private
 endif

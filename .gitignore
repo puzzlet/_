@@ -1,4 +1,5 @@
 # global gitignore
 *.pyc
+*.swp
 
 Thumbs.db

@@ -9,9 +9,23 @@ set shiftwidth=4
 
 set modeline
 
+set noswapfile
+set nobackup
+set nowritebackup
+
+set undodir=~/.vim/backups
+set undofile
+
+set hlsearch
+set incsearch
+
 autocmd BufNewFile,BufRead *.j2 set filetype=jinjahtml
 autocmd BufNewFile,BufRead *.pde setf arduino
 autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+
+set colorcolumn=80
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 "autocmd FileType python compiler pylint
 

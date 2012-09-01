@@ -1,3 +1,5 @@
 term screen-256color
 # scroll
 termcapinfo xterm* ti@:te@
+
+nethack on

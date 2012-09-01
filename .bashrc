@@ -71,7 +71,7 @@ function _prompt {
     PS1="$OFF$PS1"
 
     # always at the leftmost column
-    PS1="\[\033[G\]$PS1"
+#    PS1="\[\033[G\]$PS1"
 }
 
 PROMPT_COMMAND=_prompt

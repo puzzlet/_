@@ -41,6 +41,8 @@ call pathogen#infect()
 
 syntax enable
 
+let g:syntastic_check_on_open=1
+
 " solarize
 " TODO: Like cygwin, connectbot should NOT use solarized
 if $TERM != 'cygwin'

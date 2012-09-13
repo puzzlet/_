@@ -2,15 +2,7 @@
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-# ... or force ignoredups and ignorespace
-export HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTCONTROL=ignoredups
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -20,14 +12,14 @@ shopt -s checkwinsize
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
+    if [ -f ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal ]; then
+        eval `dircolors ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal`
+    fi
+
     alias ls='ls --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-
+    alias cgrep='grep --color=auto'
     alias less="less -R"
 fi
 
@@ -83,10 +75,6 @@ export EDITOR=vim
 
 # sort ASCII-wise in ls
 export LC_COLLATE="C"
-
-if [ -f ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal ]; then
-    eval `dircolors ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal`
-fi
 
 . /usr/share/autojump/autojump.sh
 

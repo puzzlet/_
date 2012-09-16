@@ -5,8 +5,8 @@ if has("win32") || has("win64")
     set fileencodings=utf-8
 
     " restore UI language
-"    source $VIMRUNTIME/delmenu.vim
-"    source $VIMRUNTIME/menu.vim
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
 
     " NOTE: guifontwide requires encoding=utf-8, which breaks UI language in
     "       non-utf-8 environment such as Windows.

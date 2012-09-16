@@ -42,7 +42,7 @@ call pathogen#infect()
 syntax enable
 
 " solarize
-" TODO: connectbot should NOT use solarized like cygwin
+" TODO: Like cygwin, connectbot should NOT use solarized
 if $TERM != 'cygwin'
     let g:solarized_italic=0
     if has('gui_running')
@@ -58,6 +58,10 @@ if $TERM != 'cygwin'
     endif
     colorscheme solarized
     set background=dark
+endif
+
+if &diff
+    colorscheme solarized
 endif
 
 if filereadable(expand("$HOME/.vimrc_private"))

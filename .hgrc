@@ -1,0 +1,17 @@
+%include ~/.hgrc_private
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
+
+[extensions]
+extdiff =
+graphlog =
+hgext.bookmarks =
+hggit =
+prompt = ~/devel/_tool/hg-prompt/prompt.py
+transplant =
+
+[extdiff]
+cmd.vimdiff = vim
+opts.vimdiff = -f '+next' '+execute "DirDiff" argv(0) argv(1)'

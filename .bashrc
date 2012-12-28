@@ -58,9 +58,11 @@ function _prompt {
     PS1="${debian_chroot:+($debian_chroot)}\u@\h $BLUE\w$OFF"
 
     # git status
-    PS1="$PS1$BROWN$(__git_ps1)$OFF $BOLD\$$OFF "
+    PS1="$PS1$BROWN$(__git_ps1)$OFF "
 
-    PS1="$OFF$PS1"
+    PS1="$PS1$BROWN$(hg prompt "({branch} {status}{update}) " 2>/dev/null)$OFF"
+
+    PS1="$OFF$PS1$BOLD\$$OFF "
 
     # always at the leftmost column
 #    PS1="\[\033[G\]$PS1"

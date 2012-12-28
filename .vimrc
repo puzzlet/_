@@ -23,6 +23,7 @@ autocmd BufNewFile,BufRead *.j2 set filetype=jinjahtml
 autocmd BufNewFile,BufRead *.pde setf arduino
 autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
+highlight ColorColumn ctermbg=black guibg=black
 set colorcolumn=80
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -35,6 +36,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+map <Up> gk
+map <Down> gj
 cmap w!! %!sudo tee > /dev/null %
 
 call pathogen#infect()

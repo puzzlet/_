@@ -46,7 +46,7 @@ def make_link(rel_path):
             logging.info("`{}' is a symbolic link to {}".format(
                 target_path, link_path))
         else:
-            if open(source_path).read() != open(target_path).read():
+            if open(source_path, 'rb').read() != open(target_path, 'rb').read():
                 vimdiff(source_path, target_path)
             if rel_path in SKIP_LINK:
                 return

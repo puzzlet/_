@@ -13,8 +13,10 @@ set noswapfile
 set nobackup
 set nowritebackup
 
-set undodir=~/.vim/backups
-set undofile
+if version >= 830
+    set undodir=~/.vim/backups
+    set undofile
+endif
 
 set hlsearch
 set incsearch
@@ -23,8 +25,10 @@ autocmd BufNewFile,BufRead *.j2 set filetype=jinjahtml
 autocmd BufNewFile,BufRead *.pde setf arduino
 autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
-highlight ColorColumn ctermbg=black guibg=black
-set colorcolumn=80
+if version >= 830
+    highlight ColorColumn ctermbg=black guibg=black
+    set colorcolumn=80
+endif
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 

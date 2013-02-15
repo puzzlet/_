@@ -40,7 +40,8 @@ map <Up> gk
 map <Down> gj
 cmap w!! %!sudo tee > /dev/null %
 
-call pathogen#infect()
+source ~/devel/_/.vim/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect('~/devel/_/.vim/bundle/{}')
 
 syntax enable
 

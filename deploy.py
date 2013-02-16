@@ -7,7 +7,9 @@ import sys
 
 IGNORE = [
     '.git',
+    '.vim',
     'deploy.cmd',
+    'vendor',
     os.path.basename(__file__),
 ]
 SKIP_LINK = [

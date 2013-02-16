@@ -1,2 +1,2 @@
-"G:\Python32\Python.exe" "%0%\..\deploy.py"
+"C:\Python33\Python.exe" "%0%\..\deploy.py"
 PAUSE

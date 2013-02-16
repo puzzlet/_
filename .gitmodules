@@ -7,3 +7,6 @@
 [submodule "vendor/dircolors-solarized"]
 	path = vendor/dircolors-solarized
 	url = git://github.com/seebi/dircolors-solarized.git
+[submodule ".vim/bundle/open_file_under_cursor.vim"]
+	path = .vim/bundle/open_file_under_cursor.vim
+	url = git://github.com/amix/open_file_under_cursor.vim.git

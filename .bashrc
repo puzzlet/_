@@ -14,8 +14,8 @@ shopt -s checkwinsize
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
-    if [ -f ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal ]; then
-        eval `dircolors ~/devel/_solarized/dircolors-solarized/dircolors.ansi-universal`
+    if [ -f ~/devel/_/vendor/dircolors-solarized/dircolors.ansi-universal ]; then
+        eval `dircolors ~/devel/_/vendor/dircolors-solarized/dircolors.ansi-universal`
     fi
 
     alias ls='ls --color=auto'

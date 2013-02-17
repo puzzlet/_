@@ -7,11 +7,13 @@ import sys
 
 IGNORE = [
     '.git',
-    '.vim',
     'deploy.cmd',
     'vendor',
     os.path.basename(__file__),
 ]
+if sys.platform not in ['win32']:
+    # vim's resolve() doesn't work for Windows' symlinks
+    IGNORE.append('.vim')
 SKIP_LINK = [
     '.irssi/config',
 ]
@@ -21,13 +23,15 @@ def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     for root, dirs, files in os.walk(base_dir):
         _, _, rel_root = root.partition(base_dir)
-        rel_root = rel_root.strip('/')
+        rel_root = rel_root.strip(os.sep)
         if any(_ in rel_root.split(os.sep) for _ in IGNORE):
             continue
-        for file_name in files:
-            if file_name in IGNORE:
+        for path in files + dirs:
+            if path in IGNORE:
+                if path in dirs:
+                    dirs.remove(path)
                 continue
-            rel_path = os.path.join(rel_root, file_name)
+            rel_path = os.path.join(rel_root, path)
             logging.debug(rel_path)
             make_link(rel_path)
 

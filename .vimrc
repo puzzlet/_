@@ -44,8 +44,10 @@ map <Up> gk
 map <Down> gj
 cmap w!! %!sudo tee > /dev/null %
 
-source ~/devel/_/.vim/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect('~/devel/_/.vim/bundle/{}')
+let s:script_root=fnamemodify(resolve(expand('<sfile>')), ':p:h')
+execute "source " . s:script_root . "/.vim/vim-pathogen/autoload/pathogen.vim"
+let s:tmp = s:script_root . "/.vim/bundle/{}"
+call pathogen#infect(s:tmp)
 
 syntax enable
 

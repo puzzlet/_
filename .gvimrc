@@ -1,6 +1,7 @@
 if has("win32") || has("win64")
     source $VIMRUNTIME/mswin.vim
     behave mswin
+    set winaltkeys=menu
 
     set fileencodings=utf-8
 

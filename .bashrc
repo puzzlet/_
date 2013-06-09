@@ -58,7 +58,7 @@ function _prompt {
     PS1="${debian_chroot:+($debian_chroot)}\u@\h $BLUE\w$OFF"
 
     # git status
-    PS1="$PS1$BROWN$(__git_ps1)$OFF "
+    command -v __git_ps1 2>&1 && PS1="$PS1$BROWN$(__git_ps1)$OFF"
 
     PS1="$PS1$BROWN$(hg prompt "({branch} {status}{update}) " 2>/dev/null)$OFF"
 
@@ -78,7 +78,7 @@ export EDITOR=vim
 # sort ASCII-wise in ls
 export LC_COLLATE="C"
 
-. /usr/share/autojump/autojump.sh
+[ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 
 # colored grep and less
 alias grep="grep --color=always"

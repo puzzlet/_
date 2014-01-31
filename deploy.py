@@ -26,7 +26,7 @@ def main():
         rel_root = rel_root.strip(os.sep)
         if any(_ in rel_root.split(os.sep) for _ in IGNORE):
             continue
-        for path in files + dirs:
+        for path in files:
             if path in IGNORE:
                 if path in dirs:
                     dirs.remove(path)

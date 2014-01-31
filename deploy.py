@@ -44,24 +44,26 @@ def make_link(rel_path):
     if os.path.isdir(target_path):
         logging.info("`{}' is a directory".format(target_path))
         return
-    if os.path.isfile(target_path):
-        if os.path.islink(target_path):
-            link_path = os.path.join(target_dir, os.readlink(target_path))
-            if link_path == source_path:
+    elif os.path.islink(target_path):
+        link_path = os.path.join(target_dir, os.readlink(target_path))
+        if link_path == source_path:
+            return
+        logging.info("`{}' is a symbolic link to {}".format(
+            target_path, link_path))
+        raise
+        os.unlink(target_path)
+    elif os.path.isfile(target_path):
+        if open(source_path, 'rb').read() != open(target_path, 'rb').read():
+            vimdiff(source_path, target_path)
+        if rel_path in SKIP_LINK:
+            return
+        logging.info("{} {}".format(source_path, target_path))
+        while True:
+            ans = input("Keep? (Y/n) ").strip()
+            if not ans or ans in 'yY':
                 return
-            logging.info("`{}' is a symbolic link to {}".format(
-                target_path, link_path))
-        else:
-            if open(source_path, 'rb').read() != open(target_path, 'rb').read():
-                vimdiff(source_path, target_path)
-            if rel_path in SKIP_LINK:
-                return
-            while True:
-                ans = input("Keep? (Y/n) ").strip()
-                if not ans or ans in 'yY':
-                    return
-                if ans in 'nN':
-                    break
+            if ans in 'nN':
+                break
         os.unlink(target_path)
     if not os.path.exists(target_dir):
         os.makedirs(target_dir, exist_ok=True)

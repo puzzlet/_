@@ -73,7 +73,12 @@ def make_link(rel_path):
 def vimdiff(a, b):
     cmd = []
     if sys.platform in ['win32']:
-        cmd += ['C:\\Program Files (x86)\\Vim\\vim73\\gvim.exe', '-d']
+        candidates = [
+            'C:\\Program Files (x86)\\Vim\\vim73\\gvim.exe',
+            'Z:\\Program Files (x86)\\Vim\\vim74\\gvim.exe',
+        ]
+        gvim = [_ for _ in candidates if os.path.exists(_)][0]
+        cmd += [gvim, '-d']
     else:
         cmd += ['vimdiff']
     subprocess.check_call(cmd + [a, b])

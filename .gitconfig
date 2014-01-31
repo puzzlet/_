@@ -5,6 +5,7 @@
     excludesfile = ~/.gitignore
     autocrlf = false
     eol = lf
+    filemode = false
 [push]
     default = upstream
 [diff]

@@ -58,7 +58,7 @@ function _prompt {
     PS1="${debian_chroot:+($debian_chroot)}\u@\h $BLUE\w$OFF"
 
     # git status
-    command -v __git_ps1 2>&1 && PS1="$PS1$BROWN$(__git_ps1)$OFF"
+    command -v __git_ps1 > /dev/null 2>&1 && PS1="$PS1$BROWN$(__git_ps1)$OFF"
 
     PS1="$PS1$BROWN$(hg prompt "({branch} {status}{update}) " 2>/dev/null)$OFF"
 

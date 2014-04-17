@@ -72,6 +72,9 @@ PROMPT_COMMAND=_prompt
 
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/devel/emscripten
+if [[ -d $HOME/.gem/ruby/2.0.0/bin ]] ; then
+    export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
+fi
 
 export EDITOR=vim
 

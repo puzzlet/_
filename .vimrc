@@ -21,9 +21,9 @@ endif
 set hlsearch
 set incsearch
 
-autocmd BufNewFile,BufRead *.j2 set filetype=jinjahtml
-autocmd BufNewFile,BufRead *.pde setf arduino
-autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+autocmd BufNewFile,BufRead *.j2     set filetype=jinjahtml
+autocmd BufNewFile,BufRead *.pde    setf arduino
+autocmd BufNewFile,BufRead *.yaml,*.yml    setf yaml
 
 if version >= 830
     highlight ColorColumn ctermbg=black guibg=black

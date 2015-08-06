@@ -76,6 +76,9 @@ if &diff
     colorscheme solarized
 endif
 
+" ignore whitespaces
+set diffopt+=iwhite
+
 if filereadable(expand("$HOME/.vimrc_private"))
     source ~/.vimrc_private
 endif

@@ -86,6 +86,8 @@ export LC_COLLATE="C"
 alias grep="grep --color=always"
 alias less="less -R"
 
+alias urldecode='python3 -c "import fileinput, sys, urllib.parse as p; print(p.unquote_plus(sys.argv[1])) if len(sys.argv) > 1 else [print(p.unquote_plus(_.strip())) for _ in iter(sys.stdin.readline, \"\")]"'
+
 if [ -f ~/.bash_profile_private ]; then
     . ~/.bash_profile_private
 fi

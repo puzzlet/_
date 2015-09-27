@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/vim-dirdiff"]
+	path = .vim/bundle/vim-dirdiff
+	url = https://github.com/will133/vim-dirdiff.git

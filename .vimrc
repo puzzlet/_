@@ -43,6 +43,8 @@ map <C-l> <C-W>l
 map <Up> gk
 map <Down> gj
 cmap w!! %!sudo tee > /dev/null %
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
 
 let s:script_root=fnamemodify(resolve(expand('<sfile>')), ':p:h')
 execute "source " . s:script_root . "/.vim/vim-pathogen/autoload/pathogen.vim"

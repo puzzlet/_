@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.2
+#!/usr/bin/env python3
 import logging
 import os
 import subprocess
@@ -50,7 +50,12 @@ def make_link(rel_path):
             return
         logging.info("`{}' is a symbolic link to {}".format(
             target_path, link_path))
-        raise
+        while True:
+            ans = input("Keep? (Y/n) ").strip()
+            if not ans or ans in 'yY':
+                return
+            if ans in 'nN':
+                break
         os.unlink(target_path)
     elif os.path.isfile(target_path):
         if open(source_path, 'rb').read() != open(target_path, 'rb').read():

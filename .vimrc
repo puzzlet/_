@@ -75,7 +75,7 @@ if $TERM != 'cygwin'
 endif
 
 if &diff
-    colorscheme solarized
+    colorscheme jellybeans
 endif
 
 " ignore whitespaces

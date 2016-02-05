@@ -11,6 +11,7 @@
 [diff]
     tool = vimdiff
 [merge]
+    ff = only
     tool = vimdiff
 [color]
     ui = auto

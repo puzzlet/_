@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/yaml-vim"]
 	path = .vim/bundle/yaml-vim
 	url = https://github.com/ingydotnet/yaml-vim.git
+[submodule ".vim/bundle/vim-sensible"]
+	path = .vim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git

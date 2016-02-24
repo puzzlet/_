@@ -1,33 +1,6 @@
-[submodule ".vim/vim-pathogen"]
-	path = .vim/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/vim-colors-solarized"]
-	path = .vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vendor/dircolors-solarized"]
 	path = vendor/dircolors-solarized
 	url = git://github.com/seebi/dircolors-solarized.git
-[submodule ".vim/bundle/open_file_under_cursor.vim"]
-	path = .vim/bundle/open_file_under_cursor.vim
-	url = git://github.com/amix/open_file_under_cursor.vim.git
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/vim-dirdiff"]
-	path = .vim/bundle/vim-dirdiff
-	url = https://github.com/will133/vim-dirdiff.git
-[submodule ".vim/bundle/vim-markdown"]
-	path = .vim/bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown.git
-[submodule ".vim/bundle/vim-gitgutter"]
-	path = .vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-[submodule ".vim/bundle/jellybeans.vim"]
-	path = .vim/bundle/jellybeans.vim
-	url = https://github.com/nanotech/jellybeans.vim.git
-[submodule ".vim/bundle/yaml-vim"]
-	path = .vim/bundle/yaml-vim
-	url = https://github.com/ingydotnet/yaml-vim.git
-[submodule ".vim/bundle/vim-sensible"]
-	path = .vim/bundle/vim-sensible
-	url = https://github.com/tpope/vim-sensible.git
+[submodule "vendor/vim-plug"]
+	path = vendor/vim-plug
+	url = https://github.com/junegunn/vim-plug.git

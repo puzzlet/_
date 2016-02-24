@@ -46,12 +46,28 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
-let s:script_root=fnamemodify(resolve(expand('<sfile>')), ':p:h')
-execute "source " . s:script_root . "/.vim/vim-pathogen/autoload/pathogen.vim"
-let s:tmp = s:script_root . "/.vim/bundle/{}"
-call pathogen#infect(s:tmp)
+call plug#begin('~/.vim/plugged')
 
-syntax enable
+Plug 'tpope/vim-sensible'
+
+" syntax
+Plug 'scrooloose/syntastic'
+
+Plug 'ingydotnet/yaml-vim'
+Plug 'tpope/vim-markdown'
+
+" colorschemes
+Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/seoul256.vim'
+Plug 'nanotech/jellybeans.vim'
+
+" etc
+Plug 'airblade/vim-gitgutter'
+Plug 'amix/open_file_under_cursor.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'will133/vim-dirdiff'
+
+call plug#end()
 
 let g:syntastic_check_on_open=1
 

@@ -11,9 +11,6 @@ IGNORE = [
     'vendor',
     os.path.basename(__file__),
 ]
-if sys.platform not in ['win32']:
-    # vim's resolve() doesn't work for Windows' symlinks
-    IGNORE.append('.vim')
 SKIP_LINK = [
     '.irssi/config',
 ]

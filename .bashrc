@@ -1,8 +1,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
+# ignore duplicate & space
+export HISTCONTROL=ignoreboth:erasedups
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -66,6 +66,11 @@ function _prompt {
 
     # always at the leftmost column
 #    PS1="\[\033[G\]$PS1"
+
+    # save .bash_history
+    history -a
+    # read .bash_history
+    history -r
 }
 
 PROMPT_COMMAND=_prompt

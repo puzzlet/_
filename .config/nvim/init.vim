@@ -21,6 +21,8 @@ endif
 set hlsearch
 set incsearch
 
+set mouse=
+
 autocmd BufNewFile,BufRead *.j2     set filetype=jinjahtml
 autocmd BufNewFile,BufRead *.pde    setf arduino
 autocmd BufNewFile,BufRead *.yaml,*.yml    setf yaml
@@ -51,7 +53,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " syntax
-Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 
 Plug 'ingydotnet/yaml-vim'
 Plug 'tpope/vim-markdown'
@@ -66,10 +68,38 @@ Plug 'airblade/vim-gitgutter'
 Plug 'amix/open_file_under_cursor.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'will133/vim-dirdiff'
+Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
-let g:syntastic_check_on_open=1
+set shellredir=>
+let g:neomake_python_prospector_maker = {
+    \ 'args': ['-o', 'pylint', '-M', '--absolute-paths', '%:p', '-W', 'pylint'],
+    \ 'errorformat':
+        \ '%-G%.%#Module%.%#,' .
+        \ '%-G%.%#module named%.%#,' .
+        \ '%f:%l:%c [%t%n%.%#] %m,' .
+        \ '%f:%l: [%t%n%.%#] %m,' .
+        \ '%f:%l: [%.%#] %m,' .
+        \ '%f:%l:%c [%.%#] %m',
+    \ }
+let g:neomake_python_pylint_maker = {
+    \ 'args': [
+        \ '--load-plugins', 'pylint_django',
+        \ '-f', 'text',
+        \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg}"',
+        \ '-r', 'n'
+    \ ],
+    \ 'errorformat':
+        \ '%A%f:%l:%c:%t: %m,' .
+        \ '%A%f:%l: %m,' .
+        \ '%A%f:(%l): %m,' .
+        \ '%-Z%p^%.%#,' .
+        \ '%-G%.%#',
+    \ }
+let g:neomake_python_enabled_makers = ['prospector', 'pylint']
+autocmd! BufWritePost,BufReadPost * Neomake
+autocmd! VimLeave * let g:neomake_verbose = 0
 
 " solarize
 " TODO: Like cygwin, connectbot should NOT use solarized

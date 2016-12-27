@@ -2,14 +2,19 @@
     # works both in Linux/Windows
     path = .gitconfig_private
 [core]
+    attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore
     autocrlf = false
     eol = lf
     filemode = false
 [push]
     default = upstream
+
 [diff]
     tool = vimdiff
+[diff "exif"]
+    textconv = exiftool -s2 -common --filename
+
 [merge]
     ff = only
     tool = vimdiff

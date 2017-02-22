@@ -6,7 +6,7 @@
     excludesfile = ~/.gitignore
     autocrlf = false
     eol = lf
-    filemode = false
+    filemode = true
 [push]
     default = upstream
 

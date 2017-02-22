@@ -71,8 +71,8 @@ function _prompt {
 
     # save .bash_history
     history -a
-    # read .bash_history
-    history -r
+    ## read .bash_history
+    #history -r
 }
 
 PROMPT_COMMAND=_prompt
@@ -82,6 +82,7 @@ export PATH=$PATH:$HOME/devel/emscripten
 if [[ -d $HOME/.gem/ruby/1.9.1/bin ]] ; then export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin; fi
 if [[ -d $HOME/.gem/ruby/2.0.0/bin ]] ; then export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin; fi
 if [[ -d $HOME/.gem/ruby/2.1.0/bin ]] ; then export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin; fi
+export PATH=$PATH:$HOME/node_modules/.bin/
 
 export EDITOR=vim
 
@@ -101,3 +102,5 @@ alias urldecode='python3 -c "import fileinput, sys, urllib.parse as p; print(p.u
 if [ -f ~/.bash_profile_private ]; then
     . ~/.bash_profile_private
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -26,6 +26,7 @@ set mouse=
 autocmd BufNewFile,BufRead *.j2     set filetype=jinjahtml
 autocmd BufNewFile,BufRead *.pde    setf arduino
 autocmd BufNewFile,BufRead *.yaml,*.yml    setf yaml
+autocmd FileType js,html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 if version >= 830
     highlight ColorColumn ctermbg=black guibg=black
@@ -57,6 +58,7 @@ Plug 'neomake/neomake'
 
 Plug 'ingydotnet/yaml-vim'
 Plug 'tpope/vim-markdown'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " colorschemes
 Plug 'altercation/vim-colors-solarized'
@@ -97,7 +99,8 @@ let g:neomake_python_pylint_maker = {
         \ '%-Z%p^%.%#,' .
         \ '%-G%.%#',
     \ }
-let g:neomake_python_enabled_makers = ['prospector', 'pylint']
+let g:neomake_python_enabled_makers = ['prospector']
+"let g:neomake_python_enabled_makers = ['prospector', 'pylint']
 autocmd! BufWritePost,BufReadPost * Neomake
 autocmd! VimLeave * let g:neomake_verbose = 0
 

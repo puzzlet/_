@@ -8,6 +8,7 @@
     autocrlf = false
     eol = lf
     filemode = true
+    trustctime = false
 [push]
     default = upstream
 
@@ -16,9 +17,15 @@
 [diff "exif"]
     textconv = exiftool -s2 -common --filename
 
+[rebase]
+    autostash = true
 [merge]
     ff = only
     tool = vimdiff
+[mergetool]
+    keepBackup = false
+    keepTemporaries = false
+
 [color]
     ui = auto
 [bash]

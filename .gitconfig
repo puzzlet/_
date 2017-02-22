@@ -2,6 +2,7 @@
     # works both in Linux/Windows
     path = .gitconfig_private
 [core]
+    editor = /usr/bin/vim
     attributesfile = ~/.gitattributes
     excludesfile = ~/.gitignore
     autocrlf = false

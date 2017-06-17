@@ -76,7 +76,7 @@ call plug#end()
 
 set shellredir=>
 let g:neomake_python_prospector_maker = {
-    \ 'args': ['-o', 'pylint', '-M', '--absolute-paths', '%:p', '-W', 'pylint'],
+    \ 'args': ['-o', 'pylint', '-M', '--absolute-paths', '-W', 'pylint'],
     \ 'errorformat':
         \ '%-G%.%#Module%.%#,' .
         \ '%-G%.%#module named%.%#,' .

@@ -82,7 +82,7 @@ export PATH=$PATH:$HOME/devel/emscripten
 if [[ -d $HOME/.gem/ruby/1.9.1/bin ]] ; then export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin; fi
 if [[ -d $HOME/.gem/ruby/2.0.0/bin ]] ; then export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin; fi
 if [[ -d $HOME/.gem/ruby/2.1.0/bin ]] ; then export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin; fi
-export PATH=$PATH:$HOME/node_modules/.bin/
+export PATH=:$HOME/node_modules/.bin/:$PATH
 
 export EDITOR=vim
 

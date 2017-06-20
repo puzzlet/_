@@ -123,9 +123,8 @@ if $TERM != 'cygwin'
     set background=dark
 endif
 
-if &diff
-    colorscheme jellybeans
-endif
+" Get rid of vimdiff color madness
+highlight! link DiffText StatusLine
 
 " ignore whitespaces
 set diffopt+=iwhite

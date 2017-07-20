@@ -37,33 +37,31 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+# prompt
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM="auto verbose"
-
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+EXIT_CODE="$?"
+BOLD="\[\033[1m\]"
+OFF="\[\033[m\]"
+C1="\[\033[0;38m\]"
+BLUE="\[\033[0;34m\]"
+BROWN="\[\033[0;33m\]"
+command -v hg > /dev/null 2>&1
+hg_exists=$?
 function _prompt {
-    if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-        debian_chroot=$(cat /etc/debian_chroot)
-    fi
-
-    EXIT_CODE="$?"
-
-    BOLD="\[\033[1m\]"
-    OFF="\[\033[m\]"
-
-    C1="\[\033[0;38m\]"
-    BLUE="\[\033[0;34m\]"
-    BROWN="\[\033[0;33m\]"
-
     # Debian default
     PS1="${debian_chroot:+($debian_chroot)}\u@\h $BLUE\w$OFF"
-
     # git status
     command -v __git_ps1 > /dev/null 2>&1 && PS1="$PS1$BROWN$(__git_ps1)$OFF"
-
-    PS1="$PS1$BROWN$(hg prompt "({branch} {status}{update}) " 2>/dev/null)$OFF"
-
+    # hg status
+    if [[ "$hg_exists" -eq "0" ]]; then
+        hg prompt > /dev/null 2>&1 && PS1="$PS1$BROWN$(hg prompt "({branch} {status}{update}) " 2>/dev/null)$OFF"
+    fi
     PS1="$OFF$PS1$BOLD\$$OFF "
 
     # always at the leftmost column

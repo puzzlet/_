@@ -1,8 +1,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# ignore duplicate & space
-export HISTCONTROL=ignoreboth:erasedups
+export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 
@@ -63,16 +62,13 @@ function _prompt {
         hg prompt > /dev/null 2>&1 && PS1="$PS1$BROWN$(hg prompt "({branch} {status}{update}) " 2>/dev/null)$OFF"
     fi
     PS1="$OFF$PS1$BOLD\$$OFF "
-
     # always at the leftmost column
-#    PS1="\[\033[G\]$PS1"
-
-    # save .bash_history
-    history -a
-    ## read .bash_history
-    #history -r
+    #PS1="\[\033[G\]$PS1"
+    # read-merge ; write
+    history -n ; history -w
+    # clear ; read
+    #history -c ; history -r
 }
-
 PROMPT_COMMAND=_prompt
 
 export PATH=$PATH:$HOME/bin
